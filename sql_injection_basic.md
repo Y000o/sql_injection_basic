@@ -36,11 +36,11 @@ Encontramos una página común y corriente la cual utiliza muchos parametros por
 
 En este ejemplo tenemos 3 parametros, los cuales son:
 
-``
+```
 id=1
 id2=1
 id3=1
-``
+```
 
 Ahora, para detectar si la página es vulnerable, una de las cosas mas sencillas es usar un simple ' al final de cada para metro para ver si nos genera un error en la base de datos.
 
