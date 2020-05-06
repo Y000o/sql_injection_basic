@@ -128,6 +128,12 @@ Para usar `union select`, tenos que poner el total de columnas que descubrimos a
 http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
 ```
 
+Lo que eso generará es que la página nos muestre los números de las columnas que son vulnerables para inyectar en ellas, esta parte es muy importante ya que tenemos que ser muy curiosos para notar los cambios, en algunos casos los cambios son muy drásticos y se notan demasiado, pero en otros casos los cambios son demasiado sutiles.
+
+Para este ejemplo, imaginemos que la página es vulnerable en las columnas `3` , `5` y `20`. La página nos mostrará estos números en algún lugar.
+
+
+
 
 
 
