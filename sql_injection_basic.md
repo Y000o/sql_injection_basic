@@ -5,7 +5,7 @@
 * [¿Qué es una inyección sql?](#¿Qué-es-una-inyección-sql?)
 * [¿Porqué ocurre un error sql?](#¿Porqué-ocurre-un-error-sql?)
 * [Tipos de inyección sql](#Tipos-de-inyección-sql)
-    * [Inyección sql maunual](#Inyección-sql-manual)
+    * [Inyección sql manual](#Inyección-sql-manual)
 
 
 ## ¿Qué es una inyección sql?
