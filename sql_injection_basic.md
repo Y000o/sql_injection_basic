@@ -28,11 +28,21 @@ Por otra parte tenemos la inyección automatizada con sqlmap, sqlmap es una herr
 
 ### Detectar una página vulnerable
 
-Una de las principales cosas en donde nos tenemos que fijar para detectar si una página es vulnerable a sql inyecctión es en sus parametros, imaginemos lo siguiente:
+Una de las principales cosas en donde nos tenemos que fijar para detectar si una página es vulnerable a inyección sql es en sus parametros, imaginemos lo siguiente:
 
-Encontramos una página comun y corriente la cual utiliza muchos parametros por el metodo GET (recordemos que el metodo GET es cuando la pagina envia los datos usando la URL), entonces tenemos algo como esto:
+Encontramos una página común y corriente la cual utiliza muchos parametros por el metodo GET (recordemos que el metodo GET es cuando la página envia los datos usando la URL), entonces tenemos algo como esto:
 
 `http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1`
+
+En este ejemplo tenemos 3 parametros, los cuales son:
+
+``
+id=1
+id2=1
+id3=1
+``
+
+Ahora, para detectar si la página es vulnerable, una de las cosas mas sencillas es usar un simple ' al final de cada para metro para ver si nos genera un error en la base de datos.
 
 ## Inyección sql automatizada con sqlmap
 
