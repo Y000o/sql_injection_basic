@@ -42,7 +42,25 @@ id2=1
 id3=1
 ```
 
-Ahora, para detectar si la página es vulnerable, una de las cosas mas sencillas es usar un simple ' al final de cada para metro para ver si nos genera un error en la base de datos.
+Ahora, para detectar si la página es vulnerable, una de las cosas más sencillas es usar un simple ' al final de cada para metro para ver si nos genera un error en la base de datos. 
+
+Entontes tenemos lo siguiente:
+
+Agregamos un `'` al final del primer paramero, pero no nos genera ningun error:
+
+`http://www.paginaparaejemplo.com/algo.php?id=1'&id2=1&id3=1`
+
+Agregamos un `'` al final del segundo paramero, pero no nos genera ningun error:
+
+`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1'&id3=1`
+
+Agregamos un `'` al final del ultimo paramero, pero aquí si nos devuelve un error:
+
+`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1'`
+
+La página nos muestra una leyenda como esta:
+
+`You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax`
 
 ## Inyección sql automatizada con sqlmap
 
