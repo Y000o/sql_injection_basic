@@ -1,4 +1,4 @@
-# INYECCIÓN SQLi - básico 
+# INYECCIÓN SQLi - Básico 
 
 ## TEMAS
 
@@ -27,6 +27,12 @@ Por otra parte tenemos la inyección automatizada con sqlmap, sqlmap es una herr
 ## Inyección sql manual 
 
 ### Detectar una página vulnerable
+
+Una de las principales cosas en donde nos tenemos que fijar para detectar si una página es vulnerable a sql inyecctión es en sus parametros, imaginemos lo siguiente:
+
+Encontramos una página comun y corriente la cual utiliza muchos parametros por el metodo GET (recordemos que el metodo GET es cuando la pagina envia los datos usando la URL), entonces tenemos algo como esto:
+
+`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1`
 
 ## Inyección sql automatizada con sqlmap
 
