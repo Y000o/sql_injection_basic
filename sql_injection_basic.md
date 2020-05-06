@@ -6,6 +6,7 @@
 * [¿Porqué ocurre un error sql?](#¿Porqué-ocurre-un-error-sql?)
 * [Tipos de inyección sql](#Tipos-de-inyección-sql)
     * [Inyección sql manual](#Inyección-sql-manual)
+      * [Detectar una página vulnerable](#Detectar-una-página-vulnerable)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -20,6 +21,8 @@ Un error SQL ocurre normalmente con la mala filtración de las variables en un p
 ## Tipos de inyección sql
 
 ## Inyección sql manual 
+
+### Detectar una página vulnerable
 
 ## Inyección sql automatizada con sqlmap
 
