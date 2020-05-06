@@ -20,6 +20,10 @@ Un error SQL ocurre normalmente con la mala filtración de las variables en un p
 
 ## Tipos de inyección sql
 
+Una inyección sql puede ser explotada de 2 maneras diferentes, manualmente, es decir, el atacante inyectara a mano la secuencia de comandos para así generar la acción dentro de la base de datos.
+
+Por otra parte tenemos la inyección automatizada con sqlmap, sqlmap es una herramienta diseñada especialmente para este tipo de ataques, se encarga de analizar la página, ver si es vulnerable y atacar, se dice que es automatizada ya que la herramienta hace todo por si sola, el usuario solo necesita ingresar las opciones que quiera usar para hacer más efectivo el escaneo.
+
 ## Inyección sql manual 
 
 ### Detectar una página vulnerable
