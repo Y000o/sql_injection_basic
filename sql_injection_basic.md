@@ -18,7 +18,7 @@ Un error SQL ocurre normalmente con la mala filtración de las variables en un p
 
 ## Tipos de inyección sql
 
-### Inyección sql maual 
+## Inyección sql maual 
 
 
 
