@@ -8,6 +8,7 @@
     * [Inyección sql manual](#Inyección-sql-manual)
       * [Detectar una página vulnerable](#Detectar-una-página-vulnerable)
       * [Detectar el número de columnas](#Detectar-el-número-de-columnas)
+      * [Usando union select](#Usando-union-select)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -111,9 +112,20 @@ Imaginamos que la pagina tiene `23` columnas, volviendo al ejemplo anterior en d
 
 ```
 
-Al nosotros sobrepasar el número de columnas usadas por la página, esta nos mostrara un error como el siguiente: 
+Al nosotros sobrepasar el número de columnas usadas por la página, esta nos mostrará un error como el siguiente: 
 
 `La consulta no se realizo: Unknown column '24' in 'order clause'`
+
+Gracias a esto, descubrimos que la página usa 23 columnas.
+
+### Usando union select
+
+Ahora llega el turno de `union select`, lo que hacen estos comandos es "darnos paso" por así decirlo a ejecutar sentencias directamente en la base de datos y que esto se vea reflejado en la página.
+
+Para usar `union select`, tenos que poner el total de columnas que descubrimos anteriormente. Volviendo a el ejemplo que tenemos planteado, nos quedaría de la siguiente manera:
+
+`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+'
+
 
 
 
