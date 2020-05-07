@@ -261,7 +261,7 @@ Nos muestra:
 
 ahora más entendible.
 
-*como nota* 
+## *Como nota* 
 Para realizar estos "ataques" personalizados usamos algunas cosas que me gustaría explicar:
 
 1-`gruop_concat()`: Esta es una funcion que nos permite concatenar valores, de tal manera que lo estamos usando para que nos devuelva los valores que nosotros elegimos desde la tabla seleccionada.
