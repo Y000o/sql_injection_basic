@@ -46,7 +46,7 @@ id2=1
 id3=1
 ```
 
-Ahora, para detectar si la página es vulnerable, una de las cosas más sencillas es usar un simple ' al final de cada para metro para ver si nos genera un error en la base de datos. 
+Ahora, para detectar si la página es vulnerable, una de las cosas más sencillas es usar un simple ' al final de cada parametro para ver si nos genera un error en la base de datos. 
 
 Entontes tenemos lo siguiente:
 
@@ -72,7 +72,7 @@ Ahora que tenemos el parámetro vulnerable, nos pasamos a lo siguiente.
 
 Ya tenemos el parámetro vulnerable, ahora tenemos que identificar el número de columnas usadas por la página, para esto tenemos los siguientes comandos:
 
-`ordey by` y `group by`
+`order by` y `group by`
 
 Aquí tenemos que ir testeando el numero de columnas, aquí un ejemplo de como usar el order by y el group by:
 
@@ -180,7 +180,9 @@ Basicamente es una lista con muchos "trucos" se puede decir, como es la traducci
 
 | List Columns | SELECT table_schema, table_name, column_name FROM information_schema.columns WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’ | nos muestra las columnas de la tabla elegida |
 
-|
+| Local File Access |  UNION ALL SELECT LOAD_FILE(‘/etc/passwd’)  | si es posible, nos deja leer archivos del sistema |
+
+| DB location | SELECT @@datadir | nos muestra la direccion en donde esta instalada la base de datos | 
  
 ```
 
