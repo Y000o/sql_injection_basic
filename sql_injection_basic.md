@@ -261,6 +261,14 @@ Nos muestra:
 
 ahora más entendible.
 
+*como nota* 
+Para realizar estos "ataques" personalizados usamos algunas cosas que me gustaría explicar:
+
+1-`gruop_concat()`: Esta es una funcion que nos permite concatenar valores, de tal manera que lo estamos usando para que nos devuelva los valores que nosotros elegimos desde la tabla seleccionada.
+
+2-`group_concat(table_name) from information_schema.tables`: Esta sentencia nos devuelve el nombre de las tablas (fijense que estamos haciendo uso de `group_concat(table_name)`) desde information_schema.tables, esto significa que estamos haciendo una sentencia que nos refleja el nombre de las tablas que estan dentro de la base de datos llamada information_schema.
+
+3-`group_concat(table_name) from information_schema.tables where table_schema=database()`: Este secuencia es muy parecida a la anterior, solo que aquí se agrega otro comando: `where` que se utiliza para hacer un poco mas personalizada la consulta, en este caso la estamos usando para dirigir la consulta dentro de la base de datos llamada `nombre_DB`
 
 
 
@@ -280,3 +288,4 @@ Ahora que hemos visto como hacer un "ataque" de inyección sql, vamos a pasar de
 
 ### ¿Qué es una inyección xss?
 
+Este "ataque" consiste en inyectar código malicioso en páginas web benignas. El atacante inyecta código desde el lado del cliente, de forma que por una mala configuración de la página web, este código se muestre a otros usuarios
