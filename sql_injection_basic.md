@@ -313,7 +313,50 @@ una vez que tengamos clonado el repositorio entramos a la carpeta `sqlmap-dev` y
 
 Para ver las opciones de ayuda de esta herramienta basta con usar lo siguiente:
 
-`sqlmap.py -h` y para ver toda la ayuda : `sqlmap.py -hh`
+`sqlmap.py -h`
+
+Lo que nos devolvera las opciones basicas para hacer un correcto uso de esta herramienta, algo que se tiene que entender bien es el correcto orden de ejecuion para agregar las opciones:
+
+`sqlmap.py --opcion -u URL`
+
+En las opciones podemos resaltar las mas generales e importantes, por ejemplo:
+
+```
+| --random-agent | Lo cual nos permite "cambiar" el user agent con el cual se ejecutan las consultas |
+
+| --proxy=proxy | Lo cual nos permite conectarnos a la página que queremos escanear por medio de un proxy |
+
+| -p parametro | Se utiliza para determinar el parametro que queremos analizar |
+
+| --level=1-5 | Este nos permite modificar el nivel de con el que queremos hacer el escaneo, por defecto esta en el en nivel 1 pero podemos cambiarlo hasta el 5 para hacer mas intrisivo el escaneo |
+
+| --risk=1-3 | De igual manera que --level, risk nos permite cambiar el nivel con el que queremos hacer el escaneo agregando mas agresividad pero al mismo tiempo haciendo mas ruido, este se puede configurar desde el 1 al 3 vieniendo por defecto en el número 1 |
+
+| --current-user | Nos extrar el nombre de usuario con el que interactuamos con la base de datos |
+
+| --current-db | Nos extrae el nombre de la base de datos en la cual estamos |
+
+| --dbs | Nos extrerá el numero de bases de datos y nos mostrará el nombre de cada una de ellas |
+
+| -D nombre | Nos permite entrar en la base de datos seleccionada |
+
+| --tables | Nos mostrará el numero de tablas dentro de una base de datos y los nombres de cada una de las tablas |
+
+| -T nombre | Nos permite entrar en la tabla seleccionada | 
+
+| --column | Nos extraerá el número de las columnas dentro de una tabla y nos mostrara el nombre de cada una de ellas |
+
+| -C nombre | Nos permite seleccionar la columna |
+
+| --dump | Nos permite extraer contenido de la base de datos |
+
+| --dump-all | Nos extrae todo de la base de datos |
+
+
+
+```
+
+
 
 
 
