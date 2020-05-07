@@ -9,6 +9,7 @@
       * [Detectar una página vulnerable](#Detectar-una-página-vulnerable)
       * [Detectar el número de columnas](#Detectar-el-número-de-columnas)
       * [Usando union select](#Usando-union-select)
+      * [Sacando información](#Sacando-información)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -131,6 +132,18 @@ http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4
 Lo que eso generará es que la página nos muestre los números de las columnas que son vulnerables para inyectar en ellas, esta parte es muy importante ya que tenemos que ser muy curiosos para notar los cambios, en algunos casos los cambios son muy drásticos y se notan demasiado, pero en otros casos los cambios son demasiado sutiles.
 
 Para este ejemplo, imaginemos que la página es vulnerable en las columnas `3` , `5` y `20`. La página nos mostrará estos números en algún lugar.
+
+
+### Sacando información 
+
+Ahora que tenemos el número de columnas y hemos identificado las columnas inyectables sigue sacar u inyectar informacion, para hacer eso necesitamos inyectar directamente en la columna vulnerable, pasando al ejemplo anterior y sabiendo que la columna `5` es vulnerable, nos quedara algo como esto:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,'soy vulnerable',6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
+
+Al inyectar `'soy vulnerable'` le estamos diciendo a la página que queremos que por la columna numero 5 nos muestre la frase `soy vulnerable` ya que estamos inyectando un string directamente en la columna vulnerable 
+
 
 
 
