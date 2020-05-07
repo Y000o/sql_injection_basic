@@ -159,9 +159,18 @@ Esto significa que la base de datos esta en esa ruta y al mismo tiempo nos dice 
 
 #### mysql sql Injection Cheat Sheet
 
+Al saber que la base de datos con la que se maneja la página es `mysql`, vamos a ver un pequeño `Cheat Sheet` para esta base de datos.
 
+¿Qué es un Cheat Sheet?
 
+Basicamente es una lista con muchos "trucos" se puede decir, como es la traduccion a español de esa frase `Cheat Sheet = hoja de trucos`. En esta vamos a encontrar desde las consultas mas basicas hasta consultas un poco mas avanzadas que nos van a ayudar demasiado para trabajar en nuestra inyección sql.
 
+```
+|   Version   |  SELECT @@version o SELECT version()  | nos da la version de la base de datos  |
+| Current User | SELECT user() o SELECT system_user() | nos da el usuario que tenemos |
+
+ 
+```
 
 
 
