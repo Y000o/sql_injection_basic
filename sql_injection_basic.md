@@ -157,7 +157,7 @@ Nos muestra:
 
 Esto significa que la base de datos esta en esa ruta y al mismo tiempo nos dice que la base de datos usada es `mysql`, entonces nos enfocamos en esa base de datos.
 
-### mysql sql Injection Cheat Sheet
+#### mysql sql Injection Cheat Sheet
 
 
 
