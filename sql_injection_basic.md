@@ -9,7 +9,7 @@
       * [Detectar una página vulnerable](#Detectar-una-página-vulnerable)
       * [Detectar el número de columnas](#Detectar-el-número-de-columnas)
       * [Usando union select](#Usando-union-select)
-      * [Sacando información](#Sacando-información)
+      * [Extraer información](#Extraer-información)
          * [mysql sql Injection Cheat Sheet](#mysql-sql-Injection-Cheat-Sheet)
       * [Extraer informacion personalizada](#Extraer-informacion-personalizada)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
@@ -144,7 +144,7 @@ Lo que eso generará es que la página nos muestre los números de las columnas 
 Para este ejemplo, imaginemos que la página es vulnerable en las columnas `3` , `5` y `20`. La página nos mostrará estos números en algún lugar.
 
 
-### Sacando información 
+### Extraer información 
 
 Ahora que tenemos el número de columnas y hemos identificado las columnas inyectables sigue sacar u inyectar informacion, para hacer eso necesitamos inyectar directamente en la columna vulnerable, pasando al ejemplo anterior y sabiendo que la columna `5` es vulnerable, nos quedara algo como esto:
 
