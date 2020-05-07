@@ -146,15 +146,15 @@ Para este ejemplo, imaginemos que la página es vulnerable en las columnas `3` ,
 
 ### Extraer información 
 
-Ahora que tenemos el número de columnas y hemos identificado las columnas inyectables sigue sacar u inyectar informacion, para hacer eso necesitamos inyectar directamente en la columna vulnerable, pasando al ejemplo anterior y sabiendo que la columna `5` es vulnerable, nos quedara algo como esto:
+Ahora que tenemos el número de columnas y hemos identificado las columnas inyectables sigue extraer e inyectar informacion, para hacer eso necesitamos inyectar directamente en la columna vulnerable, pasando al ejemplo anterior y al saber que la columna `5` es vulnerable, nos quedara algo como esto:
 
 ```
 http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,'soy vulnerable',6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
 ```
 
-Al inyectar `'soy vulnerable'` le estamos diciendo a la página que queremos que por la columna numero 5 nos muestre la frase `soy vulnerable` ya que estamos inyectando un string directamente en la columna vulnerable 
+Al inyectar `'soy vulnerable'` le estamos diciendo a la página que queremos que por la columna número 5 nos muestre la frase `soy vulnerable` ya que estamos inyectando un string directamente en la columna vulnerable 
 
-Algo que recomiendo mucho es usar `@@datadir`, Este nos muestra en donde esta montada la base de datos, pero al mismo tiempo nos nuesta informacion de que base de datos es, imaginemos que inyectamos y nos muestra esto:
+Algo que recomiendo mucho es usar `@@datadir`, Este nos muestra en donde esta montada la base de datos, pero al mismo tiempo nos nuesta informacion con la que podemos determinar que base de datos de esta usando, imaginemos que inyectamos y nos muestra esto:
 
 
 ```
