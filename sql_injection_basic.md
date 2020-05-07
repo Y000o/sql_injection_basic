@@ -167,12 +167,19 @@ Basicamente es una lista con muchos "trucos" se puede decir, como es la traducci
 
 ```
 |   Version   |  SELECT @@version o SELECT version()  | nos da la version de la base de datos  |
+
 | Current User | SELECT user() o SELECT system_user() | nos da el usuario que tenemos |
+
 | List Users | SELECT user FROM mysql.user | nos muestra todos los usuarios |
+
 | Database  | SELECT database() | nos muestra la base de datos en la que estamos |
+
 | Lista de bases de datos | SELECT schema_name FROM information_schema.schemata | nos muestra las bases de datos  |
+
 | List tables | SELECT table_schema,table_name FROM information_schema.tables WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’ | nos muestra las tablas de la base de datos elegida |
+
 | List Columns | SELECT table_schema, table_name, column_name FROM information_schema.columns WHERE table_schema != ‘mysql’ AND table_schema != ‘information_schema’ | nos muestra las columnas de la tabla elegida |
+
 |
  
 ```
