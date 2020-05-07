@@ -11,7 +11,7 @@
       * [Usando union select](#Usando-union-select)
       * [Sacando información](#Sacando-información)
          * [mysql sql Injection Cheat Sheet](#mysql-sql-Injection-Cheat-Sheet)
-      * [Sacando informacion personalizada](#Sacando-informacion-personalizada)
+      * [Extraer informacion personalizada](#Extraer-informacion-personalizada)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
       * [¿Qué es sqlmap?](#¿Qué-es-sqlmap?)
       * [Instalación de sqlmap](#Instalación-de-sqlmap)
@@ -195,7 +195,7 @@ Basicamente es una lista con muchos "trucos" se puede decir, como es la traducci
  
 ```
 
-### Sacando informacion personalizada
+### Extraer informacion personalizada
 
 Ahora vamos a analizar mas a detalle como sacar informacion de la base de datos, regresando al ejemplo con el que estamos practicando, vamos a usar `database()`, que como ya lo vimos nos sirve para que nos muestre el nombre de la base de datos con la que estamos trabajando;
 
