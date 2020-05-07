@@ -13,6 +13,10 @@
          * [mysql sql Injection Cheat Sheet](#mysql-sql-Injection-Cheat-Sheet)
       * [Sacando informacion personalizada](#Sacando-informacion-personalizada)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
+ 
+ * [Pasar de sql inyection a xss inyection](#Pasar-de-sql-inyection-a-xss-inyection)
+    * [¿Qué es una inyección xss?](#¿Qué-es-una-inyección-xss?)
+ 
 
 
 ## ¿Qué es una inyección sql?
@@ -269,4 +273,10 @@ ahora más entendible.
 ## Inyección sql automatizada con sqlmap
 
 
+
+## Pasar de sql inyection a xss inyection
+
+Ahora que hemos visto como hacer un "ataque" de inyección sql, vamos a pasar de una vulnerabilidad a otra, esta será una inyección xss. Todas las paginas que son vulnerables a sql inyection tambien son vulnerables a xss inyection.
+
+### ¿Qué es una inyección xss?
 
