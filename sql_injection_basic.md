@@ -359,7 +359,17 @@ Una vez que ya conocemos las opciones basicas de la herramienta vamos a ver un e
 
 `sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1"`
 
+Algo muy importante a tener en cuenta es que sqlmap escanea la página parametro por paramerto, esto significa que si tenemos una página con mas de un parametro tenemos que especificar el puerto que queremos analizar o escanear todos uno a uno.
 
+
+Al empezar el escaneo, este de divide en partes:
+
+1 - Escaneará la coneccion con la página.
+2 - Escaneará la página en busca de algun WAF o IPS:
+
+` [INFO] checking if the target is protected by some kind of WAF/IPS` 
+
+3 -
 
 
 
