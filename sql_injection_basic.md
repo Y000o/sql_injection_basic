@@ -353,9 +353,11 @@ En las opciones podemos resaltar las mas generales e importantes, por ejemplo:
 | --dump-all | Nos extrae todo de la base de datos |
 
 
-
 ```
 
+Una vez que ya conocemos las opciones basicas de la herramienta vamos a ver un ejemplo de como usarla:
+
+`sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1"`
 
 
 
