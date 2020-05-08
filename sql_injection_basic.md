@@ -417,7 +417,7 @@ back-end DBMS: MySQL 5
 [12:13:00] [INFO] fetching database names
 [12:13:00] [INFO] the SQL query used returns 2 entries
 [12:13:00] [INFO] resumed: information_schema
-[12:13:00] [INFO] resumed: safecosmetics
+[12:13:00] [INFO] resumed: nombre_DB
 available databases [2]:
 [*] information_schema
 [*] nombre_DB
