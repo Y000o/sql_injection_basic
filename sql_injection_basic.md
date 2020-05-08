@@ -510,6 +510,7 @@ Al terminar tenemos algo como esto:
 
 ```
 
+Con esto ya tenemos extraida la informacion que hay dentro de las columnas.
 
 
 ## Pasar de sql inyection a xss inyection
