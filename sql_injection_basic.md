@@ -478,7 +478,7 @@ back-end DBMS: MySQL 5
 
 [12:17:59] [INFO] retrieved: hash
 [12:18:01] [INFO] retrieved: varchar(128)
-Database: safecosmetics
+Database: nombre_DB
 Table: users
 [8 columns]
 +-------------------+--------------+
