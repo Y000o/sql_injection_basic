@@ -7,6 +7,16 @@
 ➡️ No es necesarío que tengas conociemiento del tema
 
 
+## Texto en Español:
+
+https://github.com/Y000o/sql_injection_basic/blob/master/sql_injection_basic.md
+
+## Text in English:
+
+https://github.com/Y000o/sql_injection_basic/blob/master/sql_injection_basic_en.md
+
+### Si te gusta el contenido me ayudarías mucho compartiendo
+
 -----------------------------------------------------------------------------------------------------------------------
 
 # BASIC SQL INJECTION 💉
@@ -17,3 +27,12 @@
 
 ➡️ It is not necessary that you have knowledge of the subject
 
+## Text in Spanish:
+
+https://github.com/Y000o/sql_injection_basic/blob/master/sql_injection_basic.md
+
+## Text in English:
+
+https://github.com/Y000o/sql_injection_basic/blob/master/sql_injection_basic_en.md
+
+### If you like the content you would help me a lot by sharing
